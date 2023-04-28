@@ -1,7 +1,7 @@
 {
-  "name": "postcss-import",
-  "version": "15.1.0",
-  "description": "PostCSS plugin to import CSS files",
+  "name": "postcss-anywhere-import",
+  "version": "0.1.0",
+  "description": "PostCSS plugin to import CSS files (anywhere from top to bottom of a CSS file)",
   "keywords": [
     "css",
     "postcss",
@@ -10,9 +10,9 @@
     "node modules",
     "npm"
   ],
-  "author": "Maxime Thirouin",
+  "author": "Lucas Ferreira",
   "license": "MIT",
-  "repository": "https://github.com/postcss/postcss-import.git",
+  "repository": "https://github.com/lucasferreira/postcss-anywhere-import.git",
   "files": [
     "index.js",
     "lib"
