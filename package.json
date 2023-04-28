@@ -42,7 +42,7 @@
     "ci": "eslint . && ava",
     "lint": "eslint . --fix",
     "pretest": "npm run lint",
-    "test": "ava"
+    "test": "ava --verbose"
   },
   "eslintConfig": {
     "extends": "eslint-config-problems",

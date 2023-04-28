@@ -16,6 +16,7 @@ function AtImport(options) {
   options = {
     root: process.cwd(),
     path: [],
+    anywhereImport: true,
     skipDuplicates: true,
     resolve: resolveId,
     load: loadContent,
@@ -218,7 +219,9 @@ function AtImport(options) {
       }
 
       function parseStyles(result, styles, options, state, media, layer) {
-        const statements = parseStatements(result, styles)
+        const statements = parseStatements(result, styles, {
+          anywhereImport: options.anywhereImport || false,
+        })
 
         return Promise.resolve(statements)
           .then(stmts => {

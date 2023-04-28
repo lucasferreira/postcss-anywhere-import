@@ -6,7 +6,11 @@ const postcss = require("postcss")
 // plugin
 const atImport = require("..")
 
-const processor = postcss().use(atImport())
+const processor = postcss().use(
+  atImport({
+    anywhereImport: false,
+  })
+)
 
 test("should warn when not @charset and not @import statement before", t => {
   return Promise.all([
@@ -42,6 +46,29 @@ test("should warn about all imports after some other CSS declaration", t => {
           "@import must precede all other statements (besides @charset or empty @layer)"
         )
       })
+    })
+})
+
+test("should NOT warn about all imports after some other CSS declaration [anywhereImport = true]", t => {
+  return postcss()
+    .use(
+      atImport({
+        anywhereImport: true,
+      })
+    )
+    .process(
+      `
+        x {}
+        z {}
+
+        @import "bar.css";
+        @import "foo.css";
+      `,
+      { from: "test/fixtures/imports/baz.css" }
+    )
+    .then(result => {
+      const warnings = result.warnings()
+      t.is(warnings.length, 0)
     })
 })
 

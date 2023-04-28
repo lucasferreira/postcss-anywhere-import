@@ -113,7 +113,18 @@ Checkout the [tests](test) for more examples.
 
 ### Options
 
-### `filter`
+#### `anywhereImport`
+
+Type: `Boolean`
+Default: `true`
+
+Allow this PostCSS plugin to consider any `@import` mentions and using anywhere/anyplace
+inside your .css files. If you want to regret to default version of this plugin
+like [postcss-import](https://github.com/postcss/postcss-import) turn this `anywhereImport`
+option to `false`.
+
+#### `filter`
+
 Type: `Function`
 Default: `() => true`
 
